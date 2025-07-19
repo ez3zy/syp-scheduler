@@ -41,28 +41,33 @@ function saveSchedule(username) {
 
     for (let i = 0; i < rows.length; i++) {
         const rowData = [];
-        for (let j = 1; j < rows[i].cells.length; j++) { // skip label cell
+        for (let j = 1; j < rows[i].cells.length; j++) {
             rowData.push(rows[i].cells[j].textContent);
         }
         schedule.push(rowData);
     }
 
-    localStorage.setItem('schedule_' + username, JSON.stringify(schedule));
+    fetch('/api/schedule', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, schedule })
+    });
 }
 
+// Load schedule from server
 function loadSchedule(username) {
-    const saved = localStorage.getItem('schedule_' + username);
-    if (!saved) return;
-
-    const schedule = JSON.parse(saved);
-    const table = document.querySelector('.table-container table');
-    const rows = table.tBodies[0].rows;
-
-    for (let i = 0; i < rows.length; i++) {
-        for (let j = 1; j < rows[i].cells.length; j++) { // skip label cell
-            rows[i].cells[j].textContent = schedule[i] && schedule[i][j - 1] ? schedule[i][j - 1] : '';
-        }
-    }
+    fetch(`/api/schedule?username=${encodeURIComponent(username)}`)
+        .then(res => res.json())
+        .then(data => {
+            const table = document.querySelector('.table-container table');
+            const rows = table.tBodies[0].rows;
+            const schedule = data.schedule;
+            for (let i = 0; i < rows.length; i++) {
+                for (let j = 1; j < rows[i].cells.length; j++) {
+                    rows[i].cells[j].textContent = schedule[i] && schedule[i][j - 1] ? schedule[i][j - 1] : '';
+                }
+            }
+        });
 }
 
 toggleBtn.onclick = function() {
