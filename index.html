@@ -1,1 +1,63 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SYP-Schedule(r)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h3>Enter Details</h3>
+        <input type="text" id="cellInput" placeholder="Details..." />
+        <button id="saveBtn">Save</button>
+        <button id="clearBtn">Clear</button>
+    </div>
+</div>
+<div class="schedule-wrapper">
+    <div class="table-container">
+        <table>
+
+            <thead>
+            <tr>
+                <td class="label-cell">Time/Day</td>
+                <td>Monday</td>
+                <td>Tuesday</td>
+                <td>Wednesday</td>
+                <td>Thursday</td>
+                <td>Friday</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td class="label-cell">7:30-8:15</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">8:15-9:00</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">9:10-9:55</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">9:55-10:40</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">10:40-11:25</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">11:25-12:10</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">12:10-1:05</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">1:05-1:50</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">1:50-2:35</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">2:45-3:30</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            <tr><td class="label-cell">3:30-4:15</td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td><td onclick="cellClicked(this)"></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="saveScheduleBtn" class="save-schedule-btn">Save Schedule</button>
+</div>
+
+<button id="toggleModeBtn" class="fixed-toggle-btn">Switch to View Mode</button>
+<div id="usernameModal" class="modal">
+    <div class="modal-content">
+        <h3>Enter Username</h3>
+        <input type="text" id="usernameInput" placeholder="Username..." />
+        <button id="usernameSubmitBtn">Submit</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
