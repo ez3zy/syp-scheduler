@@ -47,7 +47,7 @@ function saveSchedule(username) {
         schedule.push(rowData);
     }
 
-    fetch('/api/schedule', {
+    fetch('https://syp-scheduler.onrender.com/api/schedule', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, schedule })
@@ -56,8 +56,7 @@ function saveSchedule(username) {
 
 // Load schedule from server
 function loadSchedule(username) {
-    fetch(`/api/schedule?username=${encodeURIComponent(username)}`)
-        .then(res => res.json())
+    fetch(`https://syp-scheduler.onrender.com/api/schedule?username=${username}`);        .then(res => res.json())
         .then(data => {
             const table = document.querySelector('.table-container table');
             const rows = table.tBodies[0].rows;
