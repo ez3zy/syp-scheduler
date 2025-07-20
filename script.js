@@ -56,7 +56,8 @@ function saveSchedule(username) {
 
 // Load schedule from server
 function loadSchedule(username) {
-    fetch(`https://syp-scheduler.onrender.com/api/schedule?username=${username}`);        .then(res => res.json())
+    fetch(`https://syp-scheduler.onrender.com/api/schedule?username=${username}`)
+        .then(res => res.json())
         .then(data => {
             const table = document.querySelector('.table-container table');
             const rows = table.tBodies[0].rows;
