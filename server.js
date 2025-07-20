@@ -7,6 +7,10 @@ const DATA_FILE = path.join(__dirname, 'schedules.json');
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Schedule backend is running.');
+});
+
 function readSchedules() {
     if (!fs.existsSync(DATA_FILE)) return {};
     return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
